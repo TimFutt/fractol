@@ -33,20 +33,20 @@ static int		my_key_ft_swich(int keycode, t_env *e)
 	if (keycode == 18 || keycode == 83)
 	{
 		e->fractal = 1;
-		e->zoom = 150;
-		e->iter_max = 20;
+		e->zoom = 250;
+		e->iter_max = 10;
 	}
 	if (keycode == 19 || keycode == 84)
 	{
 		e->fractal = 2;
-		e->zoom = 150;
-		e->iter_max = 20;
+		e->zoom = 250;
+		e->iter_max = 10;
 	}
 	if (keycode == 20 || keycode == 85)
 	{
 		e->fractal = 3;
-		e->zoom = 150;
-		e->iter_max = 20;
+		e->zoom = 250;
+		e->iter_max = 10;
 	}
 	mlx_clear_window(e->mlx, e->win);
 	ft_draw(e);
