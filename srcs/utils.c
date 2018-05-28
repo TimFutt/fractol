@@ -55,3 +55,14 @@ int		ft_mouse_julia(int x, int y, t_env *e)
 	ft_draw(e);
 	return (FINISHED);
 }
+
+/*
+** Function to init events
+*/
+
+void			ft_keys(t_env *e)
+{
+	mlx_key_hook(e->win, ft_events, e);
+	mlx_mouse_hook(e->win, ft_zoom, e);
+	mlx_hook(e->win, 6, 0, ft_mouse_julia, e);
+}

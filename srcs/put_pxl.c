@@ -40,10 +40,3 @@ void			put_pxl_to_image2(t_env *e, int x, int y)
 	e->data[(x * 4) + (y * e->size_line) + 1] = g;
 	e->data[(x * 4) + (y * e->size_line) + 2] = r;
 }
-
-void			ft_keys(t_env *e)
-{
-	mlx_key_hook(e->win, ft_events, e);
-	mlx_mouse_hook(e->win, ft_zoom, e);
-	mlx_hook(e->win, 6, 0, ft_mouse_julia, e);
-}

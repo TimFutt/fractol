@@ -3,7 +3,7 @@ NAME = fractol
 SRC = srcs/main.c \
 			srcs/event.c \
 			srcs/draw.c \
-			srcs/calc.c \
+			srcs/put_pxl.c \
 			srcs/keys_strings.c \
 			srcs/fractals.c \
 			srcs/utils.c
@@ -11,7 +11,7 @@ SRC = srcs/main.c \
 OBJ = objs/main.o \
 	  objs/event.o \
 	  objs/draw.o \
-	  objs/calc.o \
+	  objs/put_pxl.o \
 	  objs/keys_strings.o \
 	  objs/fractals.o \
 	  objs/utils.o
