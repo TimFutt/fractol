@@ -16,7 +16,7 @@
 ** Function to reset when we change the fractal
 */
 
-void			ft_reset_fractal(t_env *e)
+void	ft_reset_fractal(t_env *e)
 {
 	e->zoom = 150;
 	e->iter = 20;
@@ -29,7 +29,7 @@ void			ft_reset_fractal(t_env *e)
 ** Function to center the window at the begining
 */
 
-void				ft_center_window(t_env *e)
+void	ft_center_window(t_env *e)
 {
 	int		i;
 
@@ -45,7 +45,7 @@ void				ft_center_window(t_env *e)
 ** Function to moove Julia
 */
 
-int				ft_mouse_julia(int x, int y, t_env *e)
+int		ft_mouse_julia(int x, int y, t_env *e)
 {
 	if (e->lock > 0)
 	{

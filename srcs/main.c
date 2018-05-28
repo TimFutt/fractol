@@ -33,7 +33,8 @@ void				ft_init(t_env *e)
 	e->colb = 255;
 	e->lock = 1;
 	e->img = mlx_new_image(e->mlx, 1000, 1000);
-	e->data = mlx_get_data_addr(e->img, &(e->bits_per_pixels), &(e->size_line), &(e->endian));
+	e->data = mlx_get_data_addr(e->img, &(e->bits_per_pixels),
+				&(e->size_line), &(e->endian));
 }
 
 void				ft_wrong_entry(int ac)
@@ -54,13 +55,13 @@ int					main(int ac, char **av)
 				(!ft_strcmp(av[1], "-burningship")) ||
 				(!ft_strcmp(av[1], "-douady"))))
 	{
-		if(!ft_strcmp(av[1], "-mandelbrot"))
+		if (!ft_strcmp(av[1], "-mandelbrot"))
 			e.fractal = 1;
 		if (!ft_strcmp(av[1], "-julia"))
 			e.fractal = 2;
-		if(!ft_strcmp(av[1], "-burningship"))
+		if (!ft_strcmp(av[1], "-burningship"))
 			e.fractal = 3;
-		if(!ft_strcmp(av[1], "-douady"))
+		if (!ft_strcmp(av[1], "-douady"))
 			e.fractal = 4;
 		ft_init(&e);
 		ft_center_window(&e);

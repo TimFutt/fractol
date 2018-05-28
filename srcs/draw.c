@@ -39,6 +39,4 @@ void				ft_draw(t_env *e)
 	}
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	ft_put_keys(e);
-	ft_put_keys_colors(e);
-	ft_put_keys_fractals(e);
 }

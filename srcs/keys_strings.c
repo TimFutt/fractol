@@ -19,26 +19,32 @@ void			ft_put_keys_colors(t_env *e)
 	mlx_string_put(e->mlx, e->win, 775, 950, 0xFF, "Blue color = O or L");
 }
 
-void			ft_put_keys(t_env *e)
+void			ft_put_keys_fractals(t_env *e)
 {
-	mlx_string_put(e->mlx, e->win, 10, 5, 0x318CE7, "Fractal :");
-	mlx_string_put(e->mlx, e->win, 10, 900, 0x00FF00, "Press 1, 2, 3 or 4 to change Fractal");
-	mlx_string_put(e->mlx, e->win, 10, 925, 0xFFFF00, "Press + to increase iterations");
-	mlx_string_put(e->mlx, e->win, 10, 950, 0xFFFF00, "Press - to decrease iterations");
-	mlx_string_put(e->mlx, e->win, 10, 975, 0xFE1B00, "Press ESC to quit");
-}
-
-void            ft_put_keys_fractals(t_env *e)
-{
-    if (e->fractal == 1)
+	if (e->fractal == 1)
 		mlx_string_put(e->mlx, e->win, 105, 5, 0xFFFFFF, "Mandelbrot");
 	if (e->fractal == 2)
 	{
 		mlx_string_put(e->mlx, e->win, 105, 5, 0xFFFFFF, "Julia");
-		mlx_string_put(e->mlx, e->win, 10, 850, 0x00CCCB, "Press space to lock or delock the mouse");
+		mlx_string_put(e->mlx, e->win, 10, 850, 0x00CCCB,
+			"Press space to lock or delock the mouse");
 	}
 	if (e->fractal == 3)
 		mlx_string_put(e->mlx, e->win, 105, 5, 0xFFFFFF, "Burningship");
 	if (e->fractal == 4)
 		mlx_string_put(e->mlx, e->win, 105, 5, 0xFFFFFF, "Douady");
+}
+
+void			ft_put_keys(t_env *e)
+{
+	mlx_string_put(e->mlx, e->win, 10, 5, 0x318CE7, "Fractal :");
+	mlx_string_put(e->mlx, e->win, 10, 900, 0x00FF00,
+		"Press 1, 2, 3 or 4 to change Fractal");
+	mlx_string_put(e->mlx, e->win, 10, 925, 0xFFFF00,
+		"Press + to increase iterations");
+	mlx_string_put(e->mlx, e->win, 10, 950, 0xFFFF00,
+		"Press - to decrease iterations");
+	mlx_string_put(e->mlx, e->win, 10, 975, 0xFE1B00, "Press ESC to quit");
+	ft_put_keys_colors(e);
+	ft_put_keys_fractals(e);
 }

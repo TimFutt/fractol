@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tifuret <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/28 17:33:04 by tifuret           #+#    #+#             */
+/*   Updated: 2018/05/28 17:33:05 by tifuret          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -17,7 +29,6 @@
 
 typedef struct			s_env
 {
-	/* Data for draw functions */
 	double			c_i;
 	double			c_r;
 	double			h;
@@ -35,20 +46,16 @@ typedef struct			s_env
 	double			z_i;
 	double			z_r;
 	double			zoom;
-	/* Colors */
 	unsigned long	color;
 	int				colb;
 	int				colg;
 	int				colr;
-	/* mlx_get_data_addr */
 	int				bits_per_pixels;
 	int				endian;
 	int				size_line;
-	/* Events */
 	int				fractal;
 	int				iter;
 	int				lock;
-	/* Data for the windows */
 	char			*data;
 	void			*img;
 	void			*mlx;
@@ -69,7 +76,7 @@ void					ft_douady(t_env *e);
 */
 void					ft_put_keys(t_env *e);
 void					ft_put_keys_colors(t_env *e);
-void            		ft_put_keys_fractals(t_env *e);
+void					ft_put_keys_fractals(t_env *e);
 
 /*
 ** Utils functions
