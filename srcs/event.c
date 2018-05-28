@@ -1,9 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tifuret <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/28 15:28:57 by tifuret           #+#    #+#             */
+/*   Updated: 2018/05/28 15:29:00 by tifuret          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
-int				mouse_hook(int button, int x, int y, t_env *e)
+/*
+** Function to zoom with the mouse
+*/
+
+int		ft_zoom(int keycode, int x, int y, t_env *e)
 {
-	printf("keycode == %d\n", button);
-	if (button == 5 || button == 1)
+	printf("keycode == %d\n", keycode);
+	if (keycode == 5 || keycode == 1)
 	{
 		e->x2 = x;
 		e->y2 = y;
@@ -12,76 +28,89 @@ int				mouse_hook(int button, int x, int y, t_env *e)
 		e->y1 = (y / e->zoom + e->y1) - ((e->zoom * 1.3) / 2);
 		e->y1 += ((e->zoom * 1.3) / 2) - (y / (e->zoom * 1.3));
 		e->zoom *= 1.1;
-		e->iter_max++;
 	}
-	if (button == 4 || button == 2)
+	if (keycode == 4 || keycode == 2)
 	{
 		e->x1 = (e->x2 / e->zoom + e->x1) - ((e->zoom / 1.3) / 2);
 		e->x1 += ((e->zoom / 1.3) / 2) - (e->x2 / (e->zoom / 1.3));
 		e->y1 = (e->y2 / e->zoom + e->y1) - ((e->zoom / 1.3) / 2);
 		e->y1 += ((e->zoom / 1.3) / 2) - (e->y2 / (e->zoom / 1.3));
 		e->zoom /= 1.1;
-		e->iter_max--;
 	}
 	mlx_clear_window(e->mlx, e->win);
 	ft_draw(e);
-	return (1);
+	return (FINISHED);
 }
 
-static int		my_key_ft_swich(int keycode, t_env *e)
+/*
+** Fucntion to change fractals
+*/
+
+int		ft_switch_fractals(int keycode, t_env *e)
 {
-	if (keycode == 18 || keycode == 83)
+	if (keycode == 18)
 	{
 		e->fractal = 1;
-		e->zoom = 250;
-		e->iter_max = 10;
+		ft_reset_fractal(e);
 	}
-	if (keycode == 19 || keycode == 84)
+	if (keycode == 19)
 	{
 		e->fractal = 2;
-		e->zoom = 250;
-		e->iter_max = 10;
+		ft_reset_fractal(e);
 	}
-	if (keycode == 20 || keycode == 85)
+	if (keycode == 20)
 	{
 		e->fractal = 3;
-		e->zoom = 250;
-		e->iter_max = 10;
+		ft_reset_fractal(e);
+	}
+	if (keycode == 21)
+	{
+		e->fractal = 4;
+		ft_reset_fractal(e);
 	}
 	mlx_clear_window(e->mlx, e->win);
 	ft_draw(e);
-	return (1);
+	return (FINISHED);
 }
 
-static int		my_key_ft_color(int keycode, t_env *e)
+/*
+** Fucntion to change colors
+*/
+
+int		ft_keys_colors(int keycode, t_env *e)
 {
-	if (keycode == 69)
+	if (keycode == 39)
 		e->colr /= 2;
-	if (keycode == 78)
+	if (keycode == 33)
 		e->colr *= 2;
-	if (keycode == 75)
+	if (keycode == 41)
 		e->colg /= 2;
-	if (keycode == 67)
+	if (keycode == 35)
 		e->colg *= 2;
-	if (keycode == 82)
+	if (keycode == 37)
 		e->colb /= 2;
-	if (keycode == 81)
+	if (keycode == 31)
 		e->colb *= 2;
-	if (keycode == 76 || keycode == 36)
-		e->on = 1;
-	if (keycode == 65)
-		e->on = 0;
-	if (keycode == 34)
-		e->iter_max += 5;
+	if (e->fractal == 2)
+		if (keycode == 49)
+			e->lock *= -1;
+	if (keycode == 69)
+		e->iter++;
+	if (keycode == 78)
+		e->iter--;
 	mlx_clear_window(e->mlx, e->win);
 	ft_draw(e);
-	return (1);
+	return (FINISHED);
 }
 
-int				my_key_ft(int keycode, t_env *e)
+/*
+** Function to moove the fractal
+*/
+
+int		ft_keys_moove(int keycode, t_env *e)
 {
 	if (keycode == 53)
-		exit(EXIT_SUCCESS);
+		exit(SUCCESS);
 	if (keycode == 123)
 		e->x1 += 30 / e->zoom;
 	if (keycode == 124)
@@ -89,27 +118,21 @@ int				my_key_ft(int keycode, t_env *e)
 	if (keycode == 125)
 		e->y1 -= 30 / e->zoom;
 	if (keycode == 126)
-		e->y1 += 20 / e->zoom;
-	if (keycode == 86 || keycode == 21)
-	{
-		e->fractal = 4;
-		e->zoom = 300;
-		e->iter_max = 50;
-	}
+		e->y1 += 30 / e->zoom;
 	mlx_clear_window(e->mlx, e->win);
 	ft_draw(e);
-	my_key_ft_color(keycode, e);
-	my_key_ft_swich(keycode, e);
-	return (1);
+	return (FINISHED);
 }
 
-int				mouse_julia(int x, int y, t_env *e)
+/*
+** Init events
+*/
+
+int		ft_events(int keycode, t_env *e)
 {
-	if (e->on == 1)
-	{
-		e->julx = (double)x / (double)(e->zoom / 2) - 1;
-		e->july = (double)y / (double)(e->zoom / 2) - 1;
-	}
-	ft_draw(e);
-	return (0);
+	printf("keycode == %d\n", keycode);
+	ft_switch_fractals(keycode, e);
+	ft_keys_colors(keycode, e);
+	ft_keys_moove(keycode, e);
+	return (FINISHED);
 }
