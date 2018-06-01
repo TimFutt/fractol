@@ -31,18 +31,17 @@ typedef struct			s_fractol
 {
 	double			c_i;
 	double			c_r;
-	double			h;
 	double			i;
 	double			image_x;
 	double			image_y;
 	double			julx;
 	double			july;
-	double			x1;
-	double			x2;
 	double			x;
-	double			y1;
-	double			y2;
 	double			y;
+	double			x1;
+	double			y1;
+	double			x2;
+	double			y2;
 	double			z_i;
 	double			z_r;
 	double			zoom;
@@ -84,6 +83,7 @@ void					ft_put_keys_fractals(t_fractol *e);
 
 void					ft_reset_fractal(t_fractol *e);
 void					ft_center_window(t_fractol *e);
+void					ft_set_all_window(t_fractol *e);
 
 /*
 ** Events

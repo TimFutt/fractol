@@ -20,6 +20,8 @@ int		ft_zoom(int keycode, int x, int y, t_fractol *e)
 {
 	if (keycode == 5 || keycode == 1)
 	{
+		e->x2 = x;
+		e->y2 = y;
 		e->x1 = (x / e->zoom + e->x1) - ((e->zoom * 1.3) / 2);
 		e->x1 += ((e->zoom * 1.3) / 2) - (x / (e->zoom * 1.3));
 		e->y1 = (y / e->zoom + e->y1) - ((e->zoom * 1.3) / 2);

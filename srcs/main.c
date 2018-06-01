@@ -66,6 +66,7 @@ int					main(int ac, char **av)
 		ft_init(&e);
 		ft_center_window(&e);
 		ft_draw(&e);
+		ft_set_all_window(&e);
 		ft_keys(&e);
 		mlx_loop(e.mlx);
 	}
