@@ -67,6 +67,10 @@ void	ft_keys(t_fractol *e)
 	mlx_hook(e->win, 6, 0, ft_mouse_julia, e);
 }
 
+/*
+** Function to set the fractal for all the window
+*/
+
 void	ft_set_all_window(t_fractol *e)
 {
 	e->x2 = e->x;
