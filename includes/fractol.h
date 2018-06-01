@@ -27,7 +27,7 @@
 # define FAILURE -1
 # define FINISHED 42
 
-typedef struct			s_env
+typedef struct			s_fractol
 {
 	double			c_i;
 	double			c_r;
@@ -60,51 +60,51 @@ typedef struct			s_env
 	void			*img;
 	void			*mlx;
 	void			*win;
-}						t_env;
+}						t_fractol;
 
 /*
 ** Functions to draw fractals
 */
 
-void					ft_mandelbrot(t_env *e);
-void					ft_julia(t_env *e);
-void					ft_burningship(t_env *e);
-void					ft_douady(t_env *e);
+void					ft_mandelbrot(t_fractol *e);
+void					ft_julia(t_fractol *e);
+void					ft_burningship(t_fractol *e);
+void					ft_douady(t_fractol *e);
 
 /*
 ** Functions to put keys to the screen
 */
-void					ft_put_keys(t_env *e);
-void					ft_put_keys_colors(t_env *e);
-void					ft_put_keys_fractals(t_env *e);
+void					ft_put_keys(t_fractol *e);
+void					ft_put_keys_colors(t_fractol *e);
+void					ft_put_keys_fractals(t_fractol *e);
 
 /*
 ** Utils functions
 */
 
-void					ft_reset_fractal(t_env *e);
-void					ft_center_window(t_env *e);
+void					ft_reset_fractal(t_fractol *e);
+void					ft_center_window(t_fractol *e);
 
 /*
 ** Events
 */
 
-int						ft_events(int keycode, t_env *e);
-void					ft_keys(t_env *e);
-int						ft_mouse_julia(int x, int y, t_env *e);
-int						ft_zoom(int button, int x, int y, t_env *e);
+int						ft_events(int keycode, t_fractol *e);
+void					ft_keys(t_fractol *e);
+int						ft_mouse_julia(int x, int y, t_fractol *e);
+int						ft_zoom(int keycode, int x, int y, t_fractol *e);
 
 /*
 ** Functions to put pixels
 */
 
-void					put_pxl_to_image(t_env *e, int x, int y);
-void					put_pxl_to_image2(t_env *e, int x, int y);
+void					put_pxl_to_image(t_fractol *e, int x, int y);
+void					put_pxl_to_image2(t_fractol *e, int x, int y);
 
 /*
 ** Draw function
 */
 
-void					ft_draw(t_env *e);
+void					ft_draw(t_fractol *e);
 
 #endif

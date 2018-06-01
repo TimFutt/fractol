@@ -12,7 +12,7 @@
 
 #include "../includes/fractol.h"
 
-void				ft_draw(t_env *e)
+void				ft_draw(t_fractol *e)
 {
 	ft_bzero(e->data, e->size_line * 1000);
 	e->image_x = (e->x2 - e->x1) * e->zoom;

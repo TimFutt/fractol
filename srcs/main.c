@@ -16,7 +16,7 @@
 ** Init the prog
 */
 
-void				ft_init(t_env *e)
+void				ft_init(t_fractol *e)
 {
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, 1000, 1000, "Fractol");
@@ -48,7 +48,7 @@ void				ft_wrong_entry(int ac)
 
 int					main(int ac, char **av)
 {
-	t_env			e;
+	t_fractol			e;
 
 	if (ac == 2 && ((!ft_strcmp(av[1], "-mandelbrot")) ||
 				(!ft_strcmp(av[1], "-julia")) ||

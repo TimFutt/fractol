@@ -12,7 +12,7 @@
 
 #include "../includes/fractol.h"
 
-void				ft_mandelbrot(t_env *e)
+void				ft_mandelbrot(t_fractol *e)
 {
 	float			tmp;
 
@@ -34,7 +34,7 @@ void				ft_mandelbrot(t_env *e)
 		put_pxl_to_image2(e, e->x, e->y);
 }
 
-void				ft_julia(t_env *e)
+void				ft_julia(t_fractol *e)
 {
 	float			tmp;
 
@@ -56,7 +56,7 @@ void				ft_julia(t_env *e)
 		put_pxl_to_image2(e, e->x, e->y);
 }
 
-void				ft_burningship(t_env *e)
+void				ft_burningship(t_fractol *e)
 {
 	double			tmp;
 
@@ -78,7 +78,7 @@ void				ft_burningship(t_env *e)
 		put_pxl_to_image2(e, e->x, e->y);
 }
 
-void				ft_douady(t_env *e)
+void				ft_douady(t_fractol *e)
 {
 	double			tmp;
 

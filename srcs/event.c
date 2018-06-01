@@ -16,7 +16,7 @@
 ** Function to zoom with the mouse
 */
 
-int		ft_zoom(int keycode, int x, int y, t_env *e)
+int		ft_zoom(int keycode, int x, int y, t_fractol *e)
 {
 	printf("keycode == %d\n", keycode);
 	if (keycode == 5 || keycode == 1)
@@ -46,7 +46,7 @@ int		ft_zoom(int keycode, int x, int y, t_env *e)
 ** Fucntion to change fractals
 */
 
-int		ft_switch_fractals(int keycode, t_env *e)
+int		ft_switch_fractals(int keycode, t_fractol *e)
 {
 	if (keycode == 18)
 	{
@@ -77,7 +77,7 @@ int		ft_switch_fractals(int keycode, t_env *e)
 ** Fucntion to change colors
 */
 
-int		ft_keys_colors(int keycode, t_env *e)
+int		ft_keys_colors(int keycode, t_fractol *e)
 {
 	if (keycode == 39)
 		e->colr /= 2;
@@ -107,7 +107,7 @@ int		ft_keys_colors(int keycode, t_env *e)
 ** Function to moove the fractal
 */
 
-int		ft_keys_moove(int keycode, t_env *e)
+int		ft_keys_moove(int keycode, t_fractol *e)
 {
 	if (keycode == 53)
 		exit(SUCCESS);
@@ -128,7 +128,7 @@ int		ft_keys_moove(int keycode, t_env *e)
 ** Init events
 */
 
-int		ft_events(int keycode, t_env *e)
+int		ft_events(int keycode, t_fractol *e)
 {
 	printf("keycode == %d\n", keycode);
 	ft_switch_fractals(keycode, e);
