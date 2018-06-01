@@ -12,9 +12,9 @@
 
 #include "../includes/fractol.h"
 
-void				ft_mandelbrot(t_fractol *e)
+void	ft_mandelbrot(t_fractol *e)
 {
-	float			tmp;
+	double	tmp;
 
 	e->c_r = e->x / e->zoom + e->x1;
 	e->c_i = e->y / e->zoom + e->y1;
@@ -34,9 +34,9 @@ void				ft_mandelbrot(t_fractol *e)
 		put_pxl_to_image2(e, e->x, e->y);
 }
 
-void				ft_julia(t_fractol *e)
+void	ft_julia(t_fractol *e)
 {
-	float			tmp;
+	double	tmp;
 
 	e->c_r = e->julx;
 	e->c_i = e->july;
@@ -56,9 +56,9 @@ void				ft_julia(t_fractol *e)
 		put_pxl_to_image2(e, e->x, e->y);
 }
 
-void				ft_burningship(t_fractol *e)
+void	ft_burningship(t_fractol *e)
 {
-	double			tmp;
+	double	tmp;
 
 	e->c_r = e->x / e->zoom + e->x1;
 	e->c_i = e->y / e->zoom + e->y1;
@@ -78,9 +78,9 @@ void				ft_burningship(t_fractol *e)
 		put_pxl_to_image2(e, e->x, e->y);
 }
 
-void				ft_douady(t_fractol *e)
+void	ft_douady(t_fractol *e)
 {
-	double			tmp;
+	double	tmp;
 
 	e->z_r = e->x / e->zoom + e->x1;
 	e->z_i = e->y / e->zoom + e->y1;

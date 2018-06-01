@@ -18,11 +18,8 @@
 
 int		ft_zoom(int keycode, int x, int y, t_fractol *e)
 {
-	printf("keycode == %d\n", keycode);
 	if (keycode == 5 || keycode == 1)
 	{
-		e->x2 = x;
-		e->y2 = y;
 		e->x1 = (x / e->zoom + e->x1) - ((e->zoom * 1.3) / 2);
 		e->x1 += ((e->zoom * 1.3) / 2) - (x / (e->zoom * 1.3));
 		e->y1 = (y / e->zoom + e->y1) - ((e->zoom * 1.3) / 2);
@@ -130,7 +127,6 @@ int		ft_keys_moove(int keycode, t_fractol *e)
 
 int		ft_events(int keycode, t_fractol *e)
 {
-	printf("keycode == %d\n", keycode);
 	ft_switch_fractals(keycode, e);
 	ft_keys_colors(keycode, e);
 	ft_keys_moove(keycode, e);
