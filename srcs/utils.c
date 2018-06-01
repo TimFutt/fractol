@@ -60,7 +60,7 @@ int		ft_mouse_julia(int x, int y, t_fractol *e)
 ** Function to init events
 */
 
-void			ft_keys(t_fractol *e)
+void	ft_keys(t_fractol *e)
 {
 	mlx_key_hook(e->win, ft_events, e);
 	mlx_mouse_hook(e->win, ft_zoom, e);
