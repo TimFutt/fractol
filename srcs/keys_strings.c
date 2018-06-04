@@ -14,9 +14,9 @@
 
 void			ft_put_keys_colors(t_fractol *e)
 {
-	mlx_string_put(e->mlx, e->win, 775, 900, 0xFF0000, "Red color = { or \"");
-	mlx_string_put(e->mlx, e->win, 775, 925, 0xFF00, "Green color = P or :");
-	mlx_string_put(e->mlx, e->win, 775, 950, 0xFF, "Blue color = O or L");
+	mlx_string_put(e->mlx, e->win, 775, 900, 0xFF0000, "Red color = { and \"");
+	mlx_string_put(e->mlx, e->win, 775, 925, 0xFF00, "Green color = P and :");
+	mlx_string_put(e->mlx, e->win, 775, 950, 0xFF, "Blue color = O and L");
 }
 
 void			ft_put_keys_fractals(t_fractol *e)

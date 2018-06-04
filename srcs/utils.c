@@ -18,7 +18,6 @@
 
 void	ft_reset_fractal(t_fractol *e)
 {
-	e->zoom = 150;
 	e->iter = 20;
 	e->colr = 255;
 	e->colg = 255;
